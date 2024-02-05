@@ -20,7 +20,7 @@ function start(){
         card3[i]=card[i+26];
         card4[i]=card[i+39];
     }
-    print(card1);
+    document.write(card1+"<br>");
     return 1;
 }
 
