@@ -14,10 +14,12 @@ function start(){
         return 0;
     round--;
     card.sort(function(){return 0.5 - Math.random()});
-    card1=card.slice(0,13);
-    card2=card.slice(13,26);
-    card3=card.slice(26,39);
-    card4=card.slice(39,52);
+    for (i=0;i<13;i++){
+        card1[i]=card[i];
+        card2[i]=card[i+13];
+        card3[i]=card[i+26];
+        card4[i]=card[i+39];
+    }
     print(card1);
     return 1;
 }
