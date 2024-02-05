@@ -14,13 +14,14 @@ function start(){
         return 0;
     round--;
     card.sort(function(){return 0.5 - Math.random()});
+    document.write(card+"<br>");
+    var i;
     for (i=0;i<13;i++){
         card1[i]=card[i];
         card2[i]=card[i+13];
         card3[i]=card[i+26];
         card4[i]=card[i+39];
     }
-    document.write(card1+"<br>");
     return 1;
 }
 
