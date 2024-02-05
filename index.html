@@ -15,8 +15,18 @@
             <label for="password">密碼:</label>
             <input type="text" id="password" name="password"><br><br>
             <input type="submit" value="Submit">
+            <script>
+                var name = document.getElementById("name").value;
+                var password = document.getElementById("password").value;
+                var submit = document.getElementById("submit");
+                submit.onclick = function(){
+                    if(name == "123" && password == "123"){
+                        window.location.href = "https://pokerbigtwo.github.io/user1";
+                    }
+                }
+            </script>
         </form>
-        <script>
+        <!-- <script>
             var name = document.getElementById("name").value;
             var password = document.getElementById("password").value;
             var submit = document.getElementById("submit");
@@ -25,7 +35,7 @@
                     window.location.href = "https://pokerbigtwo.github.io/user1";
                 }
             }
-        </script>
+        </script> -->
     </body> 
 </html>
 
