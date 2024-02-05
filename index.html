@@ -12,13 +12,12 @@
         <form>  
             name: <input type="text" name="name"><br>
             password: <input type="text" name="password"><br>
-            <input type="submit" value="Submit">
+            <button type="button" value="Submit" onclick="getInput()"> Submit </button>
         </form>
         <script>
-            var name = document.getElementById("name").value;
-            var password = document.getElementById("password").value;
-            var submit = document.getElementById("submit");
-            submit.onclick = function(){
+            function getInput(){
+                var name = document.getElementsByName("name")[0].value;
+                var password = document.getElementsByName("password")[0].value;
                 if(name == "123" && password == "123"){
                     window.location.href = "https://pokerbigtwo.github.io/user1";
                 }
