@@ -9,9 +9,11 @@
     </head> 
     <body >
         <h1 ><em>大老二</em></h1>
-        name: <input type="text" name="name"><br>
-        password: <input type="text" name="password"><br>
-        <input type="submit" value="Submit">
+        <form>  
+            name: <input type="text" name="name"><br>
+            password: <input type="text" name="password"><br>
+            <input type="submit" value="Submit">
+        </form>
         <script>
             var name = document.getElementById("name").value;
             var password = document.getElementById("password").value;
@@ -22,17 +24,6 @@
                 }
             }
         </script>
-        </form>
-        <!-- <script>
-            var name = document.getElementById("name").value;
-            var password = document.getElementById("password").value;
-            var submit = document.getElementById("submit");
-            submit.onclick = function(){
-                if(name == "123" && password == "123"){
-                    window.location.href = "https://pokerbigtwo.github.io/user1";
-                }
-            }
-        </script> -->
     </body> 
 </html>
 
