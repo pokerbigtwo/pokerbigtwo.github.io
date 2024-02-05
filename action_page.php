@@ -1,1 +1,8 @@
-print <h2>PHP is Fun!</h2>
+<html>
+<body>
+
+Welcome <?php echo $_POST["name"]; ?><br>
+Your password is: <?php echo $_POST["email"]; ?>
+
+</body>
+</html>

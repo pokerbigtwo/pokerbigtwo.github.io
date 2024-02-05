@@ -9,11 +9,9 @@
     </head> 
     <body >
         <h1 ><em>大老二</em></h1>
-        <form action="/action_page.php">
-            <label for="name">帳號:</label>
-            <input type="text" id="name" name="name"><br><br>
-            <label for="password">密碼:</label>
-            <input type="text" id="password" name="password"><br><br>
+        <form action="/action_page.php" method="post">
+            name: <input type="text" name="name"><br>
+            password: <input type="text" name="password"><br>
             <input type="submit" value="Submit">
             <script>
                 var name = document.getElementById("name").value;
