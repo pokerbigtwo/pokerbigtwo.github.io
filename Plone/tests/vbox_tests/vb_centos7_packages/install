@@ -1,1 +1,0 @@
-sudo ./install.sh zeo --with-python=/usr/bin/python3.6
