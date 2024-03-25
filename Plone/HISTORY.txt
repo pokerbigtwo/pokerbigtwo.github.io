@@ -1,0 +1,732 @@
+5.2.4 (unreleased)
+
+- Added Github actions flow to build the installer and test it on Linux, Macos and Windows.
+  Refactored tests.
+  [jensens]
+
+- Update to Plone 5.2.4
+  [jensens]
+
+- Major Overhaul: Drop Python build. Overhaul script, see https://github.com/plone/Installers-UnifiedInstaller/pull/110
+  [jensens]
+
+- Update to Plone 5.2.2
+  [tkimnguyen]
+
+- More reliable automatisation and fresher virtualenv.
+  Drop Python 3.5, add Python 3.8
+  [jensens]
+
+5.2.1-r4 2020-07-21
+
+- update built Python 2.7 to final release 2.7.18
+  [tobiasherp]
+
+- update built Python 3 to recent release 3.8.5
+  [tobiasherp]
+
+5.2.1-r3 2020-02-18
+
+- update to PloneHotfix20200121 1.1, pin waitress 1.4.3
+  [tkimnguyen]
+
+5.2.1-r2 2020-01-21
+
+- include PloneHotfix20200121
+  [tkimnguyen]
+
+5.2.1-r1 2020-01-14
+
+- Advance Plone to 5.2.1.
+  [tkimnguyen]
+
+- Checks for `gtar` when building installer, update credits, fix indentation, clarify build instructions
+  [tkimnguyen]
+
+5.2.0-r3 2019-11-30
+
+- update virtualenv to 16.7.8 for improved Python 3 compatibility
+  [tkimnguyen]
+
+- add macOS Catalina testing instructions
+  [tkimnguyen]
+
+5.2.0-r2 2019-08-10
+
+- Fixes for problems with building python and using pip in sudo installs.
+  [smcmahon]
+
+- Add "-H" flag to sudo command in main_install.sh. Fixes #84.
+  [smcmahon]
+
+5.2.0-r1 2019-08-01
+
+- Add option to build Python 3.6.x via --build-python=3.
+  [smcmahon]
+
+- Make check for python.h more robust to deal with non-standard installs.
+  [smcmahon]
+
+- Make fetch_versions.py pick up requirements.txt as well as versions.
+  [smcmahon]
+
+- Remove code to unpack buildout_cache from windows_install.py.
+  Fixes #90.
+  [smcmahon]
+
+5.2.0 2019-07-18
+
+- Advance Plone to 5.2.0.
+  [smcmahon]
+
+5.2rc5 2019-07-12
+
+- Advance collective.recipe.backup to 4.1.0.
+  [smcmahon]
+
+- Add dialog choice for --with-python if not specified on command line.
+  [smcmahon]
+
+- Update for 5.2rc5.
+  [smcmahon]
+
+- Fix "]" warnings for main_install.sh.
+  [smcmahon]
+
+5.2rc3 (unreleased)
+
+- When the --instance command line option is used on a Windows install, "NameError: name 'ITYPE' is not defined" results.
+  Fixes #88.
+  [smcmahon]
+
+5.2rc1-r1 (installer revision) (unreleased)
+
+- Remove DocFinderTab from develop.cfg.
+  It's not Python-3 compatible.
+  [smcmahon]
+
+- Bypass libz, libssl and libxml tool tests if we don't need to build a Python.
+  Since we are no longer necessarily building Pillow and lxml (optimistically assuming availability of binary eggs for popular platforms), we no longer need to check for headers in advance.
+  [smcmahon]
+
+5.2rc1 2019-03-13
+
+- Update docs to highlight --with-python option to designate desired Python.
+  [smcmahon]
+
+- Update docs to note that the installer no longer runs offline.
+  [smcmahon]
+
+- Update to 5.2rc1.
+  [smcmahon]
+
+- Remove pre-built buildout cache.
+  With a need to support multiple Pythons, the pre-cooked eggs were no longer practical.
+  Tests indicated that providing an uncooked source cache provided no significant build performance over download/build with good connections.
+  [smcmahon]
+
+5.2b1 (unreleased)
+
+- Python 3 compatability for build and support scripts.
+  [smcmahon]
+
+- Change cache strategy to avoid pre-cooked eggs, which are Python-version independent.
+  [smcmahon]
+
+- Change Plone/Zope version.cfg strategy to avoid name collisions, follow relative URLs.
+  [smcmahon]
+
+- change where to get help to our forum
+  [tkimnguyen]
+
+5.1.5 2019-01-08
+
+- Update to Plone 5.1.5.
+  [smcmahon]
+
+5.1.4r1 2018-11-10
+
+- The precompiler and command recipes were missing from the buildout cache. Fixed.
+  [smcmahon]
+
+5.1.4 2018-10-11
+
+- Update to Plone 5.1.4.
+  [smcmahon]
+
+(5.1.3 was never released)
+
+- Now works with Windows 10.
+  See docs/windows.rst.
+  [smcmahon]
+
+- Updates for new setuptools seem to be complete, so we're dropping install of a custom setuptools.
+  Update to virtualenv-16.0.0, zc.buildout-2.12.1.
+  [smcmahon]
+
+- repozo script source was incorrect in [repozo], resulting in repozo script not being build in standalone installs.
+  [smcmahon]
+
+5.1.2 2018-05-09
+
+- Update to Plone 5.1.2.
+  [smcmahon]
+
+5.1.1 2018-04-09
+
+- Updated zc.buildout 2.11.2 and to virtualenv-15.2.0.
+  The new zc.buildout resolved its own problem with setuptools, but problems remained in other packages, notably plone.recipe.zope2instance.
+  So, we're still installing our own setuptools.
+  [smcmahon]
+
+- Update to Plone 5.1.1.
+  [smcmahon]
+
+5.1.0r2 2018-03-18
+
+- The version of setuptools contained in virtualenv-15.1.01 (setuptools 38.8.1) is not compatible with zc.buildout-2.11.1, producing an error "AttributeError: ‘module’ object has no attribute ‘SetuptoolsVersion’" while running buildout.
+  Since we want the new zc.buildout for wheel-ability and the setuptools in the previous version of virtualenv is too old for it, we need to install a setuptools version (38.7.0).
+  Fixes #71. Thanks, ronchi.
+  [smcmahon]
+
+5.1.0r1 2018-03-06
+
+- For good reason, a recent change in sudo does not allow overwriting PWD.
+  That fouled up the installer's scheme for keeping track of the installer directory, causing helper scripts to be lost.
+  Fixed.
+  [smcmahon]
+
+- Packages included with the first 5.1.0 installer did not include some recipes used when installing via sudo.
+  [smcmahon]
+
+5.1.0 2018-03-02
+
+- Add to update_packages.py a mechanism to replace binary wheels with source tarballs.
+
+- Update to 5.1.0.
+
+5.1rc2 2017-12-24
+
+- Update to 5.1rc2.
+
+5.1rc1-r1 2017-10-28
+
+- Update zc.buildout to 2.9.5 to resolve problem with PyPI https.
+
+5.1rc1 2017-10-01
+
+- Update to Plone 5.1rc1.
+
+- Fix problems with installation of a second instance to a home directory using a built Python.
+
+5.0.8 2017-06-09
+
+- Update to Plone 5.0.8.
+
+5.0.7 2017-03-16
+
+- Update to Plone 5.0.7.
+
+5.0.6r1 2016-12-08
+
+- Add Products.PloneHotfix20160830 = 1.3 and Products.PloneHotfix20161129 = 1.2.
+
+- Update virtualenv, mr.bob, support packages.
+
+5.0.6 2016-09-23
+
+- Update to 5.0.6.
+
+5.0.5 2016-07-05
+
+- Update to Plone 5.0.5
+
+- Bugfix for status comand getting error message for init script by RedHat-FedoraCore [terapyon]
+
+- Set C, CPP and LD flags on FreeBSD to include /usr/local.
+
+5.0.4-r1 20160425
+
+- Adjust CFLAGS for OS X to do less. Works better for El Capitan, may foul up earlier versions.
+
+- Add 20160419 Hotfix.
+
+- Remove unused test for SSLv2.
+
+5.0.4 2016-04-06
+
+- Update to Plone 5.0.4.
+
+5.0.3 2016-03-29
+
+- Update to Plone 5.0.3.
+
+- Update virtualenv to 14.0.5. Fixes #44.
+  [Thanks, idgserpro]
+
+- Restore test for libjpeg, which got lost somewhere during the time that the library was optional.
+
+5.0.2 2015-01-10
+
+- Update to 5.0.2.
+
+- zc.buildout to 2.5.0.
+
+- Update developer package pins to latest.
+
+- Mask password on confirmation dialog.si
+
+5.0 - r1 - 2015-12-08
+
+- Add 20151208
+
+5.0 2015-09-26
+
+- Adapt to Plone 5.0
+
+- Dialog-driven choice of client count was always resulting in two clients. Fixed.
+
+5.0rc3 2015-09-22
+
+- Update to 5.0rc3
+
+- Update zc.buildout to 2.4.3
+
+- Fix quoting error that would manifest if --with-python was specified and a Python was already built.
+  Fixes #43.
+  [Thanks, Oleg Sadov]
+
+5.0rc2 2015-09-13
+
+- Update to 5.0rc2
+
+- Update lxml_static.cfg to latest libxml2, lxml.
+
+5.0rc1 2015-09-08
+
+- Update to 5.0rc1
+
+- Update virtualenv to 13.1.2
+
+- Update zc.buildout to 2.4.2
+
+5.0b4 2015-08-26
+
+- Update to 5.0b4
+
+5.0b3 2015-07-24
+
+- Update to 5.0b3
+
+5.0b3-pending (unreleased)
+
+- Update issue-report URLs.
+
+- Fix ownership problems with multiple instance installs to same target.
+  Fixes #38.
+
+- Add checkdocs to develop.cfg.
+
+- Update versions.
+
+5.0b2-r2 - unreleased
+
+- Update virtualenv to 13.0.1. Suppress misleading pip messages.
+
+- Install would fail if installing sudo in an environment where
+  it doesn't know how to created users/groups -- even if users and
+  group existed. Fixes #32.
+
+5.0b2-r1 - 2015-05-26
+
+- precompiler was missing from packages. Fixed.
+
+5.0b2 - 2015-05-23
+
+- Update virtualenv to 13.0.1.
+
+- Remove "-pending"
+
+- Eliminate bootstrap.py; install zc.buildout via pip in
+  virtualenv to avoid setuptools conflicts. Thanks, Jens.
+  https://community.plone.org/t/not-using-bootstrap-py-as-default/620
+
+- Change virtualenv strategy. Install inside the instance rather
+  than base directory.
+
+- Update links in README.
+
+- Fix jpeg missing message. Closes #28.
+
+- Update to 5.0b2-pending.
+
+5.0b1
+==================
+
+- Change root-method install default target from /usr/local/Plone
+  to /opt/plone. This is principally to work around a bug in the
+  patched Python 2.7.x in some versions of debian/ubuntu which
+  sabotage Python installs under /usr/local for recent versions
+  of setuptools.
+
+- Update to use recent setuptools.
+
+- Remove facilities to build readline and jpeg libraries. We really
+  wish to discourage any local libraries.
+
+- Replace zopeskel with mr.bob.
+
+- Adapt to Plone 5.0b1
+
+5.0a2 - 2014-04-29
+==================
+
+- Adapt to 5.0a2
+
+- Consolidate all the version files to one. Is this a good idea?
+
+NOTE: The 5.0a# series installers are basically the 4.3.x installer. The
+final 5.0 installer will likely have many changes.
+
+4.3.3 - 2014-04-17
+==================
+
+- Set the magic flags for C-language component builds under XCode 5.1+.
+
+- Adapt to 4.3.3.
+
+- Use newest version of Pillow; adapt jpeg_decoder tests for it.
+
+- Return setuptools to 0.7.2 for fuller buildout compatability. Use
+  --no-setuptools with virtualenv (updated). Adapt to distribute no
+  longer being in use.
+
+- Update bootstrap.py to v 2, update zc.buildout to 2.2.1, setuptools to 2.2.
+
+4.3.3-pending - 2014-02-24
+==========================
+
+- Adapt to 4.3.3-pending.
+  [pauloxnet, merged by smcmahon with permission from esteele.
+   only changes were version #s and license file.]
+
+4.3.2 - 2013-09-11
+==================
+
+- Adapt to 4.3.2.
+
+- All hail setuptools >= 7! Adapt to the new era.
+
+- Update to Python 2.7.5.
+
+4.3.1 - r1 - 2013-06-19
+=======================
+
+- Incorporate Hotfix R3.
+
+- Add tests/vb_tests, a kit to test the installer in multiple vagrant
+  boxes.
+
+4.3.1 - 2013-06-19
+==================
+
+- Adapt to 4.3.1, add hotfix.
+
+- Restore --without-ssl option that may be used to bypass ssl tests.
+  Whatever hard ssl dependency arose in 4.2.x, it's gone now.
+
+- Patch z3c.recipe.staticlxml to work with SUSE lib64 build paths.
+
+- Update to jpeg-9
+
+- Update distribute to 0.6.36.
+
+- Incorporate 2013-05-02 snapshot of master branch of z3c.recipe.staticlxml
+  plus amd64 fix.
+
+- Use --distribute when building virtualenv.
+
+- Lots of documentation improvements.
+
+- Python 2.7.x is now downloaded if needed and requested. This reduces
+  the tarball 11M. If a user cannot download the Python tarball on the
+  destination machine, they can download elsewhere and copy into the
+  packages directory.
+
+- We have had multiple reports of users who have tried to use the --user
+  flag to set the Zope startup user. Changed to --daemon-user to clarify
+  its purpose. Clarified README.txt. Related to #13545.
+
+- In a sudo install, if one of the plone_* users (or specified on command
+  line) already existed and had something other than plone_group for its
+  default group, install would abort. Modified permissions strategy to
+  tolerate users with plone_group in extra groups by using setgroup bit.
+  Modified user creation strategy to add plone_group if user already
+  exists. Resolves #13545.
+
+- Attempting sudo install from a path that is not world-readable would
+  prevent the drop-permission part of the install from reaching
+  needed resources. Fixed by copying needed resources to a temp
+  directory inside the install target. Resolves #13523.
+
+- Add provision for passing environment via sudo. Add docs. Should resolve
+  #13537.
+
+4.3 - 2013-04-14
+================
+
+- Adapt to 4.3.
+
+- Add note on installer directory permissions in sudo installs.
+  Fixes http://dev.plone.org/ticket/13523.
+
+- Move zopeskel to develop.cfg.
+
+- Add zest.releaser to develop.cfg.
+
+- Remove omelette. Since all the eggs for an installer build are in
+  the buildout cache, it's not as useful as when they may be spread
+  over the file system. It also doesn't work in environments that
+  don't support symbolic links.
+
+- Add Diazo command-line tools to develop.cfg.
+
+- Suppress meaningless warnings on chmod in set permissions.
+  Fixes http://dev.plone.org/ticket/13488.
+
+- On BSD systems, group will not be set automatically to plone_group
+  unless directory is set that way. Affects sudo installs. Fixed.
+
+4.3rc1 - (installer release 2, 2013-03-13)
+==========================================
+
+- zeoserver address reference was missing from zeo client buildout
+  sections created by the installer. Fixes #13482.
+
+4.3rc1 - 2013-03-11
+===================
+
+- Adapt to 4.3rc1.
+
+- Add version specs for plone.recipe.precompiler and
+  plone.recipe.command.
+
+4.3b3 (installer release 3, 2012-01-30)
+=======================================
+
+- Apply lxml underlink fix to all systems where ld accepts --no-as-needed.
+
+4.3b2 (installer release 2, 2013-01-27)
+=======================================
+
+- Use plone.recipe.unifiedinstaller 4.3.1 to incorporate fix for
+  plonectl.
+
+- The version check logic for libxml2/libxslt did not work on
+  shells that limit return values to a byte. Fixed.
+
+4.3b2 - 2012-01-23
+==================
+
+- Adapt to 4.3b2
+
+- Include a dev copy of z3c.recipe.staticlxml that cures clock_gettime
+  underlink on some gcc 4.[56] systems.
+
+- if libjpeg is needed, make sure it's built even when using a virtualenv
+  python. Cures a problem on OS X.
+
+- Fix Ticket #13406, Installer fails after building python, by
+  removing bad zlib test.
+
+4.3b1 2013-01-04
+==================
+
+- Adapt to 4.3b1.
+
+- Adapt to 4.3b1-pending.
+
+- Add sanity check for lxml and PIL via zopepy.
+
+- Prefer system python and packages whenever they exist and
+  are acceptable. Only build python or xml2/xslt when explicitly
+  requested.
+
+- On server mode installs, isolate the daemon a bit more by having
+  it run as a user distinct from the one owning the rest of the
+  buildout.
+
+- On server mode installs, run buildout as the buildout user rather
+  than root.
+
+- Loosen the coupling between install.sh and create_instance.py by
+  using getopts style command-line arguments.
+
+4.2.2 - update 2012-11-09
+=========================
+
+- Incorporate Products.PloneHotfix20121106 == 1.2
+
+4.2.2 - update 2012-10-24
+=========================
+
+- Step back to libxml2 2.8.0. 2.9.0 won't build on OS X.
+
+4.2.2 - 2012-10-23
+==================
+
+- libxml2/libxslt has finally been updated to cover CVE-2011-3919.
+  Updated libxml2 & libxslt version specs and removed dev version
+  of z3c.recipe.staticlxml.
+
+- Update readme to point to install and maintain section
+  of collective dev man.
+
+- Allow Python 2.6.x or 2.7.x. Resolves #13265.
+
+- Add automatic log rotation for clients. Resolves #13184.
+
+- Adapt to Plone 4.2.2. Update libjpeg, distribute and virtualenv.
+
+4.2.1
+=====
+
+- Update Plone to 4.2.1.
+
+4.2 installer update - 2012-07-08
+=================================
+
+- Remove osxcontroller support. This only worked on OS X 10.5 & 10.6, which
+  have been out-of-date for over a year.
+
+4.2 - 2012-07-02
+================
+
+- Adapt to 4.2.
+
+- --without-lxml is no longer supported, as lxml is required. Option removed.
+
+4.2rc2 - 2012-06-06
+===================
+
+- Adapt to 4.2rc2
+
+4.2rc1 - 2012-05-15
+===================
+
+- Adapt to 4.2rc1.
+
+- Update Python to 2.7.3. Set PYTHONHASHSEED environment variable to "random".
+
+- Include an unreleased version of z3c.recipe.staticlxml that applies a patch
+  for CVE-2011-3919. XXX: This should be replaced or removed when unnecessary.
+
+4.2b2 - 2012-02-15
+==================
+
+- Stop bundling zlib/libz. This is a required library on nearly every
+  platform.
+
+- Adapt to use Python 2.7.x.
+
+- if --with-python is used, there is no need to check for ssl libraries.
+
+4.2b1 - unreleased
+==================
+
+- Adapt to 4.2b1. 4.1 is now a maintenance branch, 4.2 the master.
+
+4.1.3 - 2011-12-06
+==================
+
+- preflight tool tests were not being skipped when --skip-tool-tests flag
+  was set. This caused the OS X binary installer to fail if gcc was missing.
+
+- Check for availability of patch program. Fixes #12408.
+
+4.1.3 - 2011-12-01
+==================
+
+- Update to 4.1.3.
+
+- Allow easy specification of environment variables.
+
+- Move the version-specific dist specification to the editable section.
+
+- Add packages/ patch files (but not binaries) to git repo to make sure
+  they're tracked.
+
+- If sslv2 is not available, apply patch to remove the requirement from
+  the Python build. Fixes problems with python ssl support build on
+  platforms like Ubuntu 11.10 where sslv2 is disabled.
+  Thanks to oggers for researching this.
+
+- Don't install OSX controller on Lion (no wx).
+
+4.1.2
+=====
+
+- Update to 4.1.2
+
+- Try to detect libxml2/libxslt if installed; check versions. Only build
+  statically if missing or out-of-date.
+
+- 4.1 requires ssl (optional with earlier versions). Make it much clearer
+  that this is required. Fixes #12248.
+
+- Refine some of the dependency tests.
+
+- Earlier debian multiarch detection code would fail if multiple multiarch
+  directories were present. Fixed, thanks to jgrigera for the solution.
+  issue #12188
+
+4.1 - 2011-09-07
+================
+
+- Fixes for building on Fedora 15, issue #12103. Removed some configure
+  options that only worked with Python 2.4.x. I don't know why they
+  only caused problems with Fedora 15.
+
+4.1 - 2011-08-30
+================
+
+- Add --clients=# option to specify # of zeo clients created.
+
+- Add --with-site-packages option to use virtualenv without the
+  extra isolation.
+
+- Provide more options to control lxml install.
+
+4.1 - 2011-07-26
+================
+
+- Adapt to work with OS X 10.7. This mainly involved updating readline
+  and libjpeg to most-current versions.
+
+4.1
+===
+
+- Update to 4.1
+
+4.1rc3 + Zope-Hotfix-2011-06-22
+===============================
+
+- Add Zope-Hotfix-20110622
+
+- Update to Python 2.6.7, VirtualEnv 1.6.1
+
+- Fixes to lxml build for root installs. Separate lxml build.
+
+4.1rc3
+======
+
+- Add lxml with static xml2 and xslt.
+
+- Add patch for Natty's multiarch. Fixes problem with inability to build
+  Python zlib support when libraries are in /usr/lib/x86_64-linux-gnu.
+
+- Switched from PIL to Pillow>=1.7.1, as it has support for the nutty
+  natty multiarch paths.
+
+4.1rc2
+======
