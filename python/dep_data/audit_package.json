@@ -1,0 +1,8 @@
+{"urllib.request.urlopen": ["http.client.connect", "socket.getaddrinfo", "socket.__new__", "socket.connect", "http.client.send"],"bottle.request.get_cookie": ["exec", "compile", "open"], "bottle.request.set_cookie": ["open"], "bottle.template": ["builtins.id", "exec", "compile", "open"]
+,"jinja2.Template":["open"],"pyramid.response.Response":["socket.__new__"],"django.http.response.HttpResponse":["marshal.loads", "open"]
+,"pickle.loads":["pickle.find_class"]
+,"jsonpickle.encode":["builtins.id"], "jsonpickle.decode":["builtins.id"], "templating.render_template": ["open", "import", "marshal.loads", "exec", "compile"]
+,"gluon.rocket.Rocket":["socket.__new__", "socket.bind"],"socket.getfqdn":["socket.gethostbyaddr","socket.getaddrinfo"],"gluon.restricted.RestrictedError":["os.listdir","marshal.loads","exec","marshal.dumps"],"build_environment":["os.listdir","open"],"gluon.compileapp.build_environment":["fcntl.flock","compile"],"gluon.compileapp.run_models_in":["os.walk","os.scandir","exec","import","marshal.loads"],"gluon.main.HttpServer.__init__":["compile","exec"]
+, "tornado.web.Application":["open", "marshal.loads", "exec", "compile", "import", "socket.__new__", "os.listdir", "socket.getaddrinfo","socket.bind","builtins.id"], "tornado.web.RequestHandler.write":["exec", "compile"]
+, "mako.template.Template":["open","builtins.id","compile","exec"]
+}
